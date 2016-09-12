@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Free Contract</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+<script src="js/lib/angular/angular.js"></script>
+<script src="js/lib/angular/angular-resource.js"></script>
+<script type="text/javascript" src="js/lib/angular/angular-messages.js"></script>
+
+
+<script src="js/controller/app.js"></script>
+
+</head>
+
+<body ng-app="signup" ng-controller="Ctrl">
+	<div class="page-header">
+		<div class="panel panel-header text-center">
+		<span>COMING SOON</span>
+		</div>
+	</div>
+	<div class="container-fluid">
+	<div class="panel panel-primary">
+		<div class="panel panel-body">
+		<div id="userForm" name="userForm" class="form-group ">
+		<div class="form-group">
+			<input type="email" validate-email name="email" id="email"
+				class=”form-control” size="50" ng-model="email" required
+				placeholder="email"> 
+				
+			<button class="btn btn primary" ng-click="signup()">Sign Up</button>
+			
+			<div ng-messages="userForm.email.$error" ng-show="userForm.email.$touched">
+				<div ng-message="required">Your email address is required to sign up ...</div>
+				<div ng-message="email">Invalid email address ...</div>
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+	</div>
+	
+	<div class="page-footer">
+	<div class="panel panel-footer text-center">
+		<span>ARE YOU READY ?</span>
+	</div>
+	</div>
+</body>
+
+</html>
