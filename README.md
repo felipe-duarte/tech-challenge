@@ -1,2 +1,4 @@
 # tech-challenge
-Geofusion Tech Challenge
+Tech Challenge - J2EE 7 Rest API - AngularJS
+Wildfly
+OpenShift
