@@ -31,6 +31,10 @@ public class User implements Serializable{
 		this.email = email;
 		this.creationDate = Calendar.getInstance().getTime();
 	}
+	
+	public Long getId(){
+		return this.id;
+	}
 
 	public String getEmail() {
 		return email;

@@ -1,10 +1,9 @@
-var app = angular.module('surveyApp', [ 'ngResource','ngMessages' ]);
+var app = angular.module('surveyApp', [ 'ngResource','ngMessages', 'ngRoute' ]);
 
 app.controller('surveyCtrl', function($scope, $resource) {
 	
 	$scope.response = '';
-	$scope.result = '';
-	$scope.errorMessage = '';
+	$scope.messages = '';
 	
 	var restservice = $resource(
 			'rest/survey', {}, {
@@ -21,9 +20,9 @@ app.controller('surveyCtrl', function($scope, $resource) {
 	$scope.save = function() {
 		$scope.response = restservice.save($scope.answers);
 		if($scope.response==null){
-			$scope.errorMessage = "Fail to submit your answers - Sorry try again";
+			$scope.messages = "Fail to submit your answers - Sorry try again";
 		}else{
-			$scope.result = "Thank You. You submit your answers with success - We love to know what you think about us ;)";
+			$scope.messages = "Thank You. You submit your answers with success - We love to know what you think about us ;)";
 		}
 		
 	}
@@ -37,11 +36,11 @@ app.controller('surveyCtrl', function($scope, $resource) {
 			$scope.answers = [];
 			for($key=0; $key<=count;$key++){
 				$scope.answers.push({userId: 1, questionId: $key});
-				console.log("Answer - " + $scope.answers[$key].questionId);
 			}
 		}
 	}
 	
 	$scope.query();
+	
 	
 });

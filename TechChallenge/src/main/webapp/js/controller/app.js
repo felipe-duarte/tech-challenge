@@ -2,8 +2,7 @@ var app = angular.module('signup', [ 'ngResource','ngMessages' ]);
 
 app.controller('Ctrl', function($scope, $resource) {
 	$scope.response = '';
-	$scope.result = '';
-	$scope.error = '';
+	$scope.messages = '';
 	
 	var restservice = $resource(
 			'rest/signup', {}, {
@@ -19,20 +18,19 @@ app.controller('Ctrl', function($scope, $resource) {
 				email : $scope.email
 			});
 			if($scope.response==null){
-				$scope.error = "Fail to register - Sorry try again";
+				$scope.messages = "Fail to register - Sorry try again";
 			}else{
-				$scope.result = "Registration Success - We are on the way to get in touch ;)";
+				$scope.messages = "Registration Success - We are on the way to get in touch ;)";
 			}
 		}else{
-			$scope.error = "Fail to register - An Valid e-mail is required";
+			$scope.messages = "Fail to register - An Valid e-mail is required";
 		}
 	}
 });
 
-/** Directive to validate email field **/
+/** Directive to validate email field from stackoverflow **/
 app.directive('validateEmail', function() {
 	  var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/;
-
 	  return {
 	    require: 'ngModel',
 	    restrict: '',

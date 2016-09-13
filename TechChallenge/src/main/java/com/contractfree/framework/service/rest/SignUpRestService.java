@@ -14,6 +14,9 @@ import javax.inject.Inject;
 
 import com.contractfree.framework.manager.UserManager;
 import com.contractfree.framework.model.User;
+import com.contractfree.framework.service.EmailService;
+import com.contractfree.framework.template.EmailTemplate;
+
 
 
 @Stateless
@@ -40,6 +43,9 @@ public class SignUpRestService {
 		if(dbAction){
 			String result = "Registration successful : " + emailParam;
 			LOGGER.info("New registration successful : " + emailParam);
+			
+			EmailService.sendMail(new EmailTemplate("Congratulations",emailParam.getEmail(),emailParam.getId()));
+			
 			return Response.status(Response.Status.ACCEPTED).entity(result).build();
 		}else{
 			LOGGER.severe("Fail registration : " + emailParam);

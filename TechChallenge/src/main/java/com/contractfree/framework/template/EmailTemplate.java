@@ -1,21 +1,26 @@
 package com.contractfree.framework.template;
 
+import com.contractfree.framework.util.MailDigest;
+
 public class EmailTemplate {
 	
 	private String message;
-	
+
 	private String sender;
-	
+
 	private String subject;
-	
+
 	private String recipient;
+
 	
-	public EmailTemplate(String message, String recipient){
-		
-	}
-	
-	public EmailTemplate(String message, String subject, String recipient){
-		
+	public EmailTemplate(String subject, String recipient, Long userId){
+		this.subject = subject;
+		this.recipient = recipient;
+		this.sender = "contacts@freecontract.com";
+		this.message = "<h1>Congratulations</h1> "
+				+ "<span>Survey Link : http://localhost:8080/TechChallenge/survey.html/"+
+				userId + "/" + MailDigest.digest(recipient) + "</span>";
+		System.out.println("Message: " + this.message);
 	}
 
 	public String getMessage() {
@@ -49,5 +54,5 @@ public class EmailTemplate {
 	public void setRecipient(String recipient) {
 		this.recipient = recipient;
 	}
-
+	
 }
