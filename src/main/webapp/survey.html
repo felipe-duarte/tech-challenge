@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Free Contract</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+<script src="js/lib/angular/angular.js"></script>
+<script src="js/lib/angular/angular-resource.js"></script>
+<script src="js/lib/angular/angular-route.js"></script>
+<script type="text/javascript" src="js/lib/angular/angular-messages.js"></script>
+<script src="js/controller/surveyapp.js"></script>
+</head>
+
+<body ng-app="surveyApp" ng-controller="surveyCtrl">
+	<div class="page-header">
+		<div class="panel panel-header text-center">
+			<span>COMING SOON</span>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div id="userForm" name="userForm" class="form-group" ng-form>
+			<div class="panel panel-primary">
+				<div class="panel-heading">Survey</div>
+				<div class="panel-body">
+					<div class="form-group" ng-repeat="question in questions"
+						ng-repeat="answer in answers">
+						<label>{{question.content}}</label>
+						<textarea class="form-control" ng-model="answers[$index].content"
+							rows="2" cols="80" required></textarea>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<button class="btn btn primary" ng-click="save()"
+						ng-disabled="userForm.$invalid">Submit</button>
+				</div>
+			</div>
+			<div class="panel-success" ng-show="userForm.$valid">{{result}}</div>
+			<div class="panel-danger" ng-show="userForm.$submited">{{errorMessage}}</div>
+		</div>
+	</div>
+
+	<div class="page-footer">
+		<div class="panel panel-footer text-center">
+			<span>ARE YOU READY ?</span>
+		</div>
+	</div>
+</body>
+
+</html>

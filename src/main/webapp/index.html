@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Free Contract</title>
+
+<script src="js/lib/angular/angular.js"></script>
+<script src="js/lib/angular/angular-resource.js"></script>
+<script type="text/javascript" src="js/lib/angular/angular-messages.js"></script>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+
+<script src="js/controller/app.js"></script>
+
+</head>
+
+<body ng-app="signup" ng-controller="Ctrl">
+	<div class="page-header">
+		<div class="panel panel-header text-center">
+			<span>COMING SOON</span>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel panel-body">
+			<form name="userForm" novalidate>
+			<span class="label label-danger" ng-show="userForm.email.$dirty && userForm.email.$error.required">Required!</span>
+			<span class="label label-danger" ng-show="userForm.email.$dirty && userForm.$error.email">Invalid email!</span>
+					<div class="input-group">
+						<input class=”form-control” validate-email type="email" 
+						ng-model="email" required placeholder="email address...">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="button" ng-click="signup()"> Sign Up </button>
+						</span>
+					</div>
+			</form>
+			</div>
+			<div class="panel panel-footer">
+			<div id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-footer">
+		<div class="panel panel-footer text-center">
+			<span>ARE YOU READY ?</span>
+		</div>
+	</div>
+</body>
+
+</html>
