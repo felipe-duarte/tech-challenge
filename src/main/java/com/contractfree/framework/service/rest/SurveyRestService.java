@@ -21,7 +21,7 @@ import com.contractfree.framework.model.SurveyQuestion;
 @Path("/survey")
 public class SurveyRestService {
 
-	private static final Logger LOGGER = Logger.getLogger( SignUpRestService.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger( SurveyRestService.class.getName() );
 	
 	@Inject
 	SurveyManager surveyManager;
@@ -35,7 +35,7 @@ public class SurveyRestService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces("text/plain")
 	public Response save(List<SurveyAnswer> surveyParam){
-		LOGGER.fine("Save survey calling ");
+		LOGGER.info("Save survey calling "+ surveyParam);
 		
 		boolean dbAction = surveyManager.save(surveyParam);
 		

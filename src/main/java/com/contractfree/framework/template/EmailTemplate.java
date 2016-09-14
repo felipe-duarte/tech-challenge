@@ -11,14 +11,17 @@ public class EmailTemplate {
 	private String subject;
 
 	private String recipient;
+	
+	private String baseUrl;
 
 	
 	public EmailTemplate(String subject, String recipient, Long userId){
 		this.subject = subject;
 		this.recipient = recipient;
 		this.sender = "contacts@freecontract.com";
+		this.baseUrl = System.getProperty("surveyApp.baseURL");
 		this.message = "<h1>Congratulations</h1> "
-				+ "<span>Survey Link : http://localhost:8080/TechChallenge/survey.html/"+
+				+ "<span>Survey Link :"+this.baseUrl+"/TechChallenge/survey.html#/"+
 				userId + "/" + MailDigest.digest(recipient) + "</span>";
 		System.out.println("Message: " + this.message);
 	}

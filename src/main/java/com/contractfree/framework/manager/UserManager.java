@@ -1,4 +1,4 @@
-	package com.contractfree.framework.manager;
+package com.contractfree.framework.manager;
 
 
 import java.util.logging.Logger;
@@ -39,5 +39,13 @@ public class UserManager{
 		}
 		return true;
 	}
-
+		
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public User findById(Long id){
+		return em.getEntityManager().find(User.class, id);
+	}
 }
