@@ -1,4 +1,4 @@
-var app = angular.module('surveyApp', [ 'ngResource','ngMessages', 'ngRoute' ]);
+var app = angular.module('surveyApp', [ 'ngResource','ngMessages']);
 
 app.controller('surveyCtrl', function($scope, $location, $resource) {
 	
@@ -37,7 +37,7 @@ app.controller('surveyCtrl', function($scope, $location, $resource) {
 			var count = Object.keys($scope.questions).length;
 			$scope.answers = [];
 			for($key=0; $key<=count;$key++){
-				$scope.answers.push({userId: paramsUrl[1], questionId: $key, emailHash: paramsUrl[2]});
+				$scope.answers.push({userId: paramsUrl[1], questionId: $key+1, emailHash: paramsUrl[2]});
 			}
 		}
 	}

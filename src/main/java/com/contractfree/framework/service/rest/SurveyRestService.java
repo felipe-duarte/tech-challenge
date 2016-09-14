@@ -23,6 +23,8 @@ public class SurveyRestService {
 
 	private static final Logger LOGGER = Logger.getLogger( SurveyRestService.class.getName() );
 	
+	private static final String SUCCESS = "Submit survey answers successful";
+	
 	@Inject
 	SurveyManager surveyManager;
 
@@ -35,14 +37,11 @@ public class SurveyRestService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces("text/plain")
 	public Response save(List<SurveyAnswer> surveyParam){
-		LOGGER.info("Save survey calling "+ surveyParam);
-		
+		LOGGER.fine("Save survey calling "+ surveyParam);
 		boolean dbAction = surveyManager.save(surveyParam);
-		
 		if(dbAction){
-			String result = "Submit survey answers successful";
 			LOGGER.info("Submit survey answers successful : " + surveyParam);
-			return Response.status(Response.Status.ACCEPTED).entity(result).build();
+			return Response.status(Response.Status.ACCEPTED).entity(SurveyRestService.SUCCESS).build();
 		}else{
 			LOGGER.severe("Fail submit survey answers : " + surveyParam);
 			return Response.status(Response.Status.BAD_REQUEST).build();

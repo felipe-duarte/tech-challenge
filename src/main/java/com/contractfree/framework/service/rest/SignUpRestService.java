@@ -25,6 +25,9 @@ public class SignUpRestService {
 	
 	private static final Logger LOGGER = Logger.getLogger( SignUpRestService.class.getName() );
 	
+	private static final String SUCCESS = "Registration successful";
+	
+	
 	@Inject
 	private UserManager userManager;
 	
@@ -37,16 +40,11 @@ public class SignUpRestService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces("text/plain")
 	public Response signUp(User emailParam){
-		
 		boolean dbAction = userManager.save(emailParam);
-		
 		if(dbAction){
-			String result = "Registration successful : " + emailParam;
 			LOGGER.info("New registration successful : " + emailParam);
-			
 			EmailService.sendMail(new EmailTemplate("Congratulations",emailParam.getEmail(),emailParam.getId()));
-			
-			return Response.status(Response.Status.ACCEPTED).entity(result).build();
+			return Response.status(Response.Status.ACCEPTED).entity(SignUpRestService.SUCCESS).build();
 		}else{
 			LOGGER.severe("Fail registration : " + emailParam);
 			return Response.status(Response.Status.BAD_REQUEST).build();

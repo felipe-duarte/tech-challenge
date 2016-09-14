@@ -23,7 +23,6 @@ public class EmailTemplate {
 		this.message = "<h1>Congratulations</h1> "
 				+ "<span>Survey Link :"+this.baseUrl+"/TechChallenge/survey.html#/"+
 				userId + "/" + MailDigest.digest(recipient) + "</span>";
-		System.out.println("Message: " + this.message);
 	}
 
 	public String getMessage() {

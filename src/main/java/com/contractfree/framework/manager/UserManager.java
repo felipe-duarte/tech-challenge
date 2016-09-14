@@ -16,7 +16,7 @@ public class UserManager{
 	private static Logger LOGGER = Logger.getLogger(UserManager.class.getName());
 
 	@Inject
-	private Resources em;
+	private Resources resource;
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class UserManager{
 	 */
 	public boolean save(User user) {
 		try {
-			em.getEntityManager().persist(user);
+			resource.getEntityManager().persist(user);
 			LOGGER.info("New user registration persistence success : " + user.getEmail() + " - " + user.getCreationDate());
 		} catch (Exception e) {
 			LOGGER.severe("PERSISTENCE ERROR - USER SAVE : " + e.getMessage());
@@ -46,6 +46,6 @@ public class UserManager{
 	 * @return
 	 */
 	public User findById(Long id){
-		return em.getEntityManager().find(User.class, id);
+		return resource.getEntityManager().find(User.class, id);
 	}
 }
