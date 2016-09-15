@@ -15,8 +15,7 @@ public class UserManager{
 
 	private static Logger LOGGER = Logger.getLogger(UserManager.class.getName());
 
-	@Inject
-	private Resources resource;
+	@Inject Resources resource;
 
 	/**
 	 * 

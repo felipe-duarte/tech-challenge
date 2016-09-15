@@ -16,8 +16,7 @@ public class SurveyManager {
 
 	private static Logger LOGGER = Logger.getLogger(SurveyManager.class.getName());
 
-	@Inject
-	private Resources resource;
+	@Inject Resources resource;
 	
 	@Inject
 	private UserManager userManager;

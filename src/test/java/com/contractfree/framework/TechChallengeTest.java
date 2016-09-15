@@ -1,15 +1,8 @@
 package com.contractfree.framework;
 
 
-import org.junit.Test;
-
 /**
- * Unit test for simple App.
+ * Unit test
  */
 public class TechChallengeTest {
-	
-	@Test
-	public void testDatabaseUsers(){
-		
-	}
 }

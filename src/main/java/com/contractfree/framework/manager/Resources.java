@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class Resources {
 
 	@PersistenceContext(unitName = "userUnit")
-	private EntityManager entityManager;
+	EntityManager entityManager;
 
 	@Produces
 	public EntityManager getEntityManager() {
