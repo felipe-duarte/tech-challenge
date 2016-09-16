@@ -15,8 +15,7 @@ public class SignUpRestServiceTest {
 	public void testSignUpRestService(){
 		User user = new User();
 		user.setEmail("test@email.com");
-				
-		//assertNotNull(response);
+		
 	}
 	
 	
