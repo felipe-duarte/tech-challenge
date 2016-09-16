@@ -1,50 +1,44 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html ng-app="freeContract">
 <head>
-<title>Free Contract</title>
+<title>Contract Free</title>
+ <meta charset="UTF-8"> 
 
-<script src="js/lib/angular/angular.js"></script>
-<script src="js/lib/angular/angular-resource.js"></script>
-<script type="text/javascript" src="js/lib/angular/angular-messages.js"></script>
+<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="vendor/bootstrap/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="app.css" />
 
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+<!-- Angular libs -->
+<script type="text/javascript" src="vendor/angular/angular.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-resource.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-route.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-messages.js"></script>
 
-<script src="js/controller/app.js"></script>
+<base href="/TechChallenge/">
 
 </head>
 
-<body ng-app="signup" ng-controller="Ctrl">
-	<div class="page-header">
-		<div class="panel panel-header text-center">
-			<span>COMING SOON</span>
-		</div>
-	</div>
-	<div class="container-fluid">
-		<div class="panel panel-primary">
-			<div class="panel panel-body">
-			<form name="userForm" novalidate>
-			<span class="label label-danger" ng-show="userForm.email.$dirty && userForm.email.$error.required">Required!</span>
-			<span class="label label-danger" ng-show="userForm.email.$dirty && userForm.$error.email">Invalid email!</span>
-					<div class="input-group">
-						<input class="form-control" validate-email type="email" 
-						ng-model="email" required placeholder="email address...">
-						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button" ng-click="signup()"> Sign Up </button>
-						</span>
-					</div>
-			</form>
-			</div>
-			<div class="panel panel-footer">
-			<div id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></div>
-			</div>
-		</div>
-	</div>
+<body >
 
-	<div class="page-footer">
-		<div class="panel panel-footer text-center">
-			<span>ARE YOU READY ?</span>
-		</div>
+
+<nav class="navbar  navbar-static-top" style="margin: 0;">
+	<div class="container">
+		<a class="navbar-brand" href="#">Contract Free</a>
 	</div>
+</nav>
+
+<div ng-view ></div>
+
+<!-- jQuery -->
+<script type="text/javascript" src="vendor/jquery/jquery-3.1.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+
+<!-- Project js -->
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="subscribe/subscribe.js"></script>
+<script type="text/javascript" src="survey/survey.js"></script>
 </body>
 
 </html>

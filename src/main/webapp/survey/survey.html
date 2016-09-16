@@ -1,0 +1,39 @@
+<div class="container">
+	<form name="userForm" class="form-group" >
+		<div class="panel panel-primary">
+			<div class="panel-heading">Survey</div>
+			<div class="panel-body">
+				<div class="form-group" ng-repeat="question in questions" >
+
+					<label>{{question.content}}</label>
+					<textarea class="form-control" ng-model="answers[$index].content"
+						rows="2" cols="80" required></textarea>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<button class="btn btn-primary" ng-click="save()"
+					ng-disabled="userForm.$invalid">Submit</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" >{{alertModal.title}}</h4>
+			</div>
+			<div class="modal-body">{{alertModal.body}}</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

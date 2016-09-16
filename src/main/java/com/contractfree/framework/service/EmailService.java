@@ -24,13 +24,25 @@ public class EmailService {
 	      Session session = Session.getDefaultInstance(properties);
 
 	      try{
+	    	 
 	    	 MimeMessage message = new MimeMessage(session);
-	         message.setFrom(new InternetAddress(from));
+	    	 Multipart multiPartMessage = new MimeMultipart();
+	    	 MimeBodyPart htmlMessage = new MimeBodyPart();
+	 
+	    	 message.setFrom(new InternetAddress(from));
 	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 	         message.setSubject(template.getSubject());
-	         message.setText(template.getMessage());
+
+	         htmlMessage.setContent(template.getMessage(), "text/html; charset=utf-8");
+	         
+	         multiPartMessage.addBodyPart(htmlMessage);
+	         
+	         message.setContent(multiPartMessage);
+	         
+	         message.saveChanges();
 	         
 	         Transport.send(message);
+	         
 	         LOGGER.info("EMAIL SENT TO : " + to);
 
 	      }catch (MessagingException ex) {

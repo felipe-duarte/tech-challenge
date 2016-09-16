@@ -1,7 +1,5 @@
 package com.contractfree.framework.manager;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,7 +20,6 @@ public class UserManagerTest {
 		User testUser = new User("teste@email.com");
 		userManager.save(testUser);
 		Mockito.verify(userManager).save(testUser);
-		//assertNotNull(testUser.getId());
 	}
 
 }
