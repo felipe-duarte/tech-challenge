@@ -21,10 +21,10 @@ public class EmailTemplate {
 		this.sender = "contacts@contractfree.com";
 		this.baseUrl = System.getProperty("surveyApp.baseURL");
 		this.message = " <h1>Congratulations</h1>"
-				+ "<p>You are already registered into our ContractFree services, and we are very glad of it.</p> "
-				+ "<p>In order to know better what you think about our offer, follow below a "
+				+ "<p>You are already registered into our ContractFree services, and we are very glad of your interest in it.</p> "
+				+ "<p>In order to know better what you think about our vision, follow below a "
 				+ "link to a very quick survey, that should improve our services before we launch our new WebApp next month!</p>"
-				+ "<p>All our efforts are directed to give what you really wan't and need! ;)</p>"
+				+ "<p>All of our efforts are already directed to give what you really wan't and need! ;)</p>"
 				+ "<br>"
 				+ "<p><a href=\""+ this.baseUrl+"/TechChallenge/index.html#!/survey/"+
 				userId + "/" + MailDigest.digest(recipient) +"\"> Click Here to Survey Link </p>";

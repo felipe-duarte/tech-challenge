@@ -191,6 +191,7 @@
 			</build>
 		</profile>
 
+		<!-- Test with arquillian - managed container -->
 		<profile>
 			<id>arq-wildfly-managed</id>
 			<dependencies>
@@ -201,7 +202,9 @@
 				</dependency>
 			</dependencies>
 		</profile>
-
+	
+		
+		<!-- Test with arquillian - remote container -->
 		<profile>
 			<id>arq-wildfly-remote</id>
 			<dependencies>
@@ -211,22 +214,6 @@
 					<scope>test</scope>
 				</dependency>
 			</dependencies>
-		</profile>
-
-		<profile>
-			<id>openshift</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-war-plugin</artifactId>
-						<version>${version.war.plugin}</version>
-						<configuration>
-							<outputDirectory>deployments</outputDirectory>
-							<warName>ROOT</warName>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 
 	</profiles>
