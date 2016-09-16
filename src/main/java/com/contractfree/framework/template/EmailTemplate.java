@@ -26,8 +26,8 @@ public class EmailTemplate {
 				+ "link to a very quick survey, that should improve our services before we launch our new WebApp next month!</p>"
 				+ "<p>All of our efforts are already directed to give what you really wan't and need! ;)</p>"
 				+ "<br>"
-				+ "<p><a href=\""+ this.baseUrl+"/TechChallenge/index.html#!/survey/"+
-				userId + "/" + MailDigest.digest(recipient) +"\"> Click Here to Survey Link </p>";
+				+ "<p>"+ this.baseUrl+"/TechChallenge/index.html#!/survey/"+
+				userId + "/" + MailDigest.digest(recipient) +"</p>";
 		
 		System.out.println("Message: " + message);
 	}
